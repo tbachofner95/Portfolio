@@ -1,7 +1,7 @@
 {
   "name": "updatedportfolio",
   "version": "1.0.0",
-  "homepage": "https://tbachofner95.github.io/Portfolio",
+  "homepage": "https://trevorbachofner.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
