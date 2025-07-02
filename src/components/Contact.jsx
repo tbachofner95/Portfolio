@@ -2,22 +2,11 @@ import React, { useState } from "react";
 import "../styles/Contact.css";
 
 function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await fetch("/sendEmail", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
+  const handleSubmit = () => {
     setSubmitted(true);
-    setForm({ name: "", email: "", message: "" });
   };
 
   return (
@@ -26,10 +15,33 @@ function Contact() {
       {submitted ? (
         <p>Thanks! Your message has been sent.</p>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <input name="name" placeholder="Your Name" onChange={handleChange} required />
-          <input name="email" type="email" placeholder="Your Email" onChange={handleChange} required />
-          <textarea name="message" placeholder="Your Message" onChange={handleChange} required />
+        <form
+          action="https://formsubmit.co/trevorb718208@gmail.com"
+          method="POST"
+          onSubmit={handleSubmit}
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+          />
+          {/* Optional hidden fields */}
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="https://www.trevorbachofner.com/thank-you" />
+          
           <button type="submit">Send</button>
         </form>
       )}
@@ -38,3 +50,4 @@ function Contact() {
 }
 
 export default Contact;
+
