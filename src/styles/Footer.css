@@ -1,0 +1,20 @@
+/* src/styles/Footer.css */
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #00bcd4;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
